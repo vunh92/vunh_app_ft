@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:vunh_app_ft/models/photo_model.dart';
+import 'package:vunh_app_ft/view/home_menu.dart';
 
 class PhotoHome extends StatefulWidget {
   @override
@@ -61,6 +62,9 @@ class PhotoHomeState extends State<PhotoHome> {
               ? PhotosList(photos: snapshot.data)
               : Center(child: CircularProgressIndicator());
         },
+      ),
+      drawer: Drawer(
+        child: HomeMenu(),
       ),
     );
   }
