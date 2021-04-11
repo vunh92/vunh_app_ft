@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vunh_app_ft/models/home_menu_model.dart';
 import 'package:vunh_app_ft/screens/contact_home.dart';
+import 'package:vunh_app_ft/screens/navigation_example.dart';
+import 'package:vunh_app_ft/screens/navigations/navigation_home.dart';
+import 'package:vunh_app_ft/screens/note_home.dart';
 import 'package:vunh_app_ft/screens/shop_home.dart';
 
 class HomeMenu extends StatefulWidget {
@@ -68,6 +71,36 @@ class HomeMenuState extends State<HomeMenu> {
             ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text("Map!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
             Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Note'),
+          leading: Icon(Icons.note_add, color: Colors.deepPurpleAccent,),
+          onTap: () {
+            // Update the state of the app.
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("Note!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NoteHome(),));
+          },
+        ),
+        ListTile(
+          tileColor: Colors.black12,
+          title: Text('Screen Navigation'),
+          leading: Icon(Icons.home, color: Colors.deepPurpleAccent,),
+          onTap: () {
+            // Update the state of the app.
+            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationHome(),));
+          },
+        ),
+        ListTile(
+          title: Text('Navigation Example'),
+          leading: Icon(Icons.home_work_outlined, color: Colors.deepPurpleAccent,),
+          onTap: () {
+            // Update the state of the app.
+            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
           },
         ),
       ],
