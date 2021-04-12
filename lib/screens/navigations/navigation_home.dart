@@ -10,24 +10,24 @@ class NavigationHome extends StatefulWidget {
 
 class _HomePageState extends State<NavigationHome> with TickerProviderStateMixin<NavigationHome> {
   int _currentIndex = 0;
-  List<Key> _destinationKeys;
-  List<AnimationController> _faders;
+  // List<Key> _destinationKeys;
+  // List<AnimationController> _faders;
 
   @override
   void initState() {
     super.initState();
 
-    _faders = allDestinations.map<AnimationController>((Destination destination) {
-      return AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
-    }).toList();
-    _faders[_currentIndex].value = 1.0;
-    _destinationKeys = List<Key>.generate(allDestinations.length, (int index) => GlobalKey()).toList();
+    // _faders = allDestinations.map<AnimationController>((Destination destination) {
+    //   return AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
+    // }).toList();
+    // _faders[_currentIndex].value = 1.0;
+    // _destinationKeys = List<Key>.generate(allDestinations.length, (int index) => GlobalKey()).toList();
   }
 
   @override
   void dispose() {
-    for (AnimationController controller in _faders)
-      controller.dispose();
+    // for (AnimationController controller in _faders)
+    //   controller.dispose();
     super.dispose();
   }
 
