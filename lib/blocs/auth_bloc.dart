@@ -7,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vunh_app_ft/dialog/loading_dialog.dart';
 import 'package:vunh_app_ft/dialog/msg_dialog.dart';
 import 'package:vunh_app_ft/screens/photo_home.dart';
+import 'package:vunh_app_ft/view/home_screen.dart';
 
 class AuthBloc {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -61,7 +62,8 @@ class AuthBloc {
       AuthResult _authResult = await _auth.signInWithEmailAndPassword(email: email, password: password);
       if (_authResult.user != null) {
         LoadingDialog.hideLoadingDialog(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => PhotoHome(),));
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => PhotoHome(),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Login Success!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
       }else {

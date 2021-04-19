@@ -94,7 +94,7 @@ class HomeMenuState extends State<HomeMenu> {
             Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationHome(),));
           },
         ),
-        ListTile(
+        /*ListTile(
           title: Text('Navigation Example'),
           leading: Icon(Icons.home_work_outlined, color: Colors.deepPurpleAccent,),
           onTap: () {
@@ -102,7 +102,7 @@ class HomeMenuState extends State<HomeMenu> {
             Navigator.pop(context);
             Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
           },
-        ),
+        ),*/
       ],
     );
   }
