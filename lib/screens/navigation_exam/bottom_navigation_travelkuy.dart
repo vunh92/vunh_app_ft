@@ -16,6 +16,8 @@ class _BottomNavigationTravelkuyState extends State<BottomNavigationTravelkuy> {
       GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w500);
 
   void _onItemTapped(int index) {
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("BottomNavigation - " + "$index", textAlign: TextAlign.center,), duration: Duration(seconds: 2), ));
     setState(() {
       _selectedIndex = index;
     });
@@ -34,10 +36,10 @@ class _BottomNavigationTravelkuyState extends State<BottomNavigationTravelkuy> {
               blurRadius: 15,
               offset: Offset(0, 5))
         ],
-        borderRadius: BorderRadius.only(
+        /*borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
-        ),
+        ),*/
       ),
       child: BottomNavigationBar(
         items: <BottomNavigationBarItem>[

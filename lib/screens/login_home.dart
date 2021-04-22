@@ -30,11 +30,22 @@ class LoginHomeState extends State<LoginHome> {
           child: Column(
             children: <Widget>[
               SizedBox(height: 40, ),
-              Image.asset('hu_hon_001.PNG',height: 150,),
+              Container(
+                  decoration: BoxDecoration(
+                      color: Colors.brown[400],
+                      borderRadius: BorderRadius.all(new Radius.circular(100)),
+                      border: Border.all(color: Colors.yellow[900], width: 5)
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.asset('hu_hon_001.PNG', height: 150, width: 150, fit: BoxFit.fill,),
+                  )
+              ),
+              // Image.asset('hu_hon_001.PNG',height: 150,),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: Text(
-                  "Welcom to Vunh Car",
+                  "Welcom to Vunh App",
                   style: TextStyle(fontSize: 22, color: Colors.deepPurpleAccent),
                 ),
               ),
@@ -140,38 +151,44 @@ class LoginHomeState extends State<LoginHome> {
               ),
 
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                child: RichText(text: TextSpan(
-                    text: "Other Functions? ",
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                       /* Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => OtherFunctions(),));*/
-                        Fluttertoast.showToast(
-                            msg: "OtherFunctions()..",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIos: 1
-                        );
-                      },
-                    children: <TextSpan>[
-                      TextSpan(
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  // builder: (context) => PageRegister(),));
-                                  builder: (context) => RegisterHome(),));
-                          },
-                        text: "Sign up ",
-                        style: TextStyle(color: Colors.blue, fontSize: 16),
-                      )
-                    ]
-                )),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      RichText(
+                          text: TextSpan(
+                          text: "Help? ",
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                             /* Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => OtherFunctions(),));*/
+                              Fluttertoast.showToast(
+                                  msg: "Help..",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIos: 1
+                              );
+                            },
+                      )),
+                      RichText(
+                          text: TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      // builder: (context) => PageRegister(),));
+                                      builder: (context) => RegisterHome(),));
+                              },
+                            text: "Sign up! ",
+                            style: TextStyle(color: Colors.blue, fontSize: 16),)),
+                    ],
+                  ),
+                ),
               )
             ],
           ),

@@ -65,7 +65,7 @@ class AuthBloc {
         // Navigator.push(context, MaterialPageRoute(builder: (context) => PhotoHome(),));
         Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Login Success!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+            SnackBar(content: Text("Login Success!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
       }else {
         LoadingDialog.hideLoadingDialog(context);
       }

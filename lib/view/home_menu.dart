@@ -35,7 +35,7 @@ class HomeMenuState extends State<HomeMenu> {
           onTap: () {
             // Update the state of the app.
             ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("My Profile!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+                SnackBar(content: Text("My Profile!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
             Navigator.pop(context);
           },
         ),
@@ -46,7 +46,7 @@ class HomeMenuState extends State<HomeMenu> {
           onTap: () {
             // Update the state of the app.
             ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Shop!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+                SnackBar(content: Text("Shop!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
             Navigator.pop(context);
             Navigator.push(context, MaterialPageRoute(builder: (context) => ShopHome(),));
           },
@@ -57,7 +57,7 @@ class HomeMenuState extends State<HomeMenu> {
           onTap: () {
             // Update the state of the app.
             ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Contact!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+                SnackBar(content: Text("Contact!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
             Navigator.pop(context);
             Navigator.push(context, MaterialPageRoute(builder: (context) => ContactHome(),));
           },
@@ -69,7 +69,7 @@ class HomeMenuState extends State<HomeMenu> {
           onTap: () {
             // Update the state of the app.
             ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Map!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+                SnackBar(content: Text("Map!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
             Navigator.pop(context);
           },
         ),
@@ -79,7 +79,7 @@ class HomeMenuState extends State<HomeMenu> {
           onTap: () {
             // Update the state of the app.
             ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Note!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+                SnackBar(content: Text("Note!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
             Navigator.pop(context);
             Navigator.push(context, MaterialPageRoute(builder: (context) => NoteHome(),));
           },

@@ -78,6 +78,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       autoplay: true,
                       layout: SwiperLayout.DEFAULT,
                       itemCount: carousels.length,
+                      onTap: (index) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("SwiperLayout - " + "$index", textAlign: TextAlign.center,), duration: Duration(seconds: 2), ));
+                      },
                       itemBuilder: (BuildContext context, index) {
                         return Container(
                           decoration: BoxDecoration(
@@ -118,10 +122,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
 
                       // More
-                      Text(
-                        'More...',
-                        style: mMoreDiscountStyle,
-                      )
+                      InkWell(
+                        onTap: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("More...", textAlign: TextAlign.center,), duration: Duration(seconds: 2), ));
+                        },
+                        child: Text(
+                          'More...',
+                          style: mMoreDiscountStyle,
+                        ),
+                      ),
                     ],
                   ),
                 ],
