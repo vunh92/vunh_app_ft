@@ -74,7 +74,7 @@ class MsgDialog {
     var _inputTextController = TextEditingController();
     return showDialog<ConfirmActionTwoButton>(
       context: context,
-      // barrierDismissible: false, // user must tap button!
+      barrierDismissible: false, // user must tap button!
       builder: (context) => AlertDialog(
         // key: Key(keyDialog),
         titleTextStyle: ThemeBase.textWhiteMessDialogTitle,
@@ -96,7 +96,7 @@ class MsgDialog {
                 color: colorWhite,
               ),
               const SizedBox(width: 5),
-              Text(title),
+              Text(title ?? ConstantStringVn.sys_notify),
             ],
           ),
         ),
@@ -113,10 +113,24 @@ class MsgDialog {
         ),
         actions: <Widget>[
           FlatButton(
+            // child: Text(typeBtnYes)
+            // key: Key(keyBtnYes),
+            child: Text(
+              typeBtnYes ?? ConstantStringVn.sys_yes,
+              style: ThemeBase.textMessDialogButtonColorHint,
+            ),
+            onPressed: () =>
+            // print("typeBtnYes");
+            // Navigator.of(context).pop(MsgDialog);
+            Navigator.of(context).pop(
+                ConfirmActionTwoButton.ACCEPT
+            ),
+          )
+          ,FlatButton(
               // key: Key(keyBtnNo),
               // child: Text(typeBtnNo)
               child: Text(
-                typeBtnNo ?? 'No',
+                typeBtnNo ?? ConstantStringVn.sys_no,
                 style: ThemeBase.textMessDialogButtonColorHint,
               ),
               onPressed: () =>
@@ -126,49 +140,8 @@ class MsgDialog {
                   ConfirmActionTwoButton.CANCEL
               ),
           ),
-          FlatButton(
-              // child: Text(typeBtnYes)
-            // key: Key(keyBtnYes),
-            child: Text(
-                typeBtnYes ?? 'Yes',
-                style: ThemeBase.textMessDialogButtonColorHint,
-              ),
-              onPressed: () =>
-                // print("typeBtnYes");
-                // Navigator.of(context).pop(MsgDialog);
-                Navigator.of(context).pop(
-                    ConfirmActionTwoButton.ACCEPT
-                ),
-          )
         ],
       ),
     );
   }
-
-  //show msg y/n
-  /*static void showTwoButtonDialog(BuildContext context, String title, String content, String typeBtnNo, String typeBtnYes){
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(title),
-        content: Text(content),
-        actions: <Widget>[
-          FlatButton(
-            onPressed: () {
-              print("typeBtnNo");
-              Navigator.of(context).pop(MsgDialog);
-            },
-            child: Text(typeBtnNo)
-          ),
-          FlatButton(
-              onPressed: () {
-                print("typeBtnYes");
-                Navigator.of(context).pop(MsgDialog);
-              },
-              child: Text(typeBtnYes)
-          )
-        ],
-      ),
-    );
-  }*/
 }

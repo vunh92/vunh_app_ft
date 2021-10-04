@@ -8,6 +8,8 @@ import 'package:vunh_app_ft/dialog/loading_dialog.dart';
 import 'package:vunh_app_ft/screens/photo_home.dart';
 import 'package:vunh_app_ft/screens/register_home.dart';
 import 'package:vunh_app_ft/vunh_base/dialog_base/alert_customize.dart';
+import 'package:vunh_app_ft/vunh_base/value_base/colors.dart';
+import 'package:vunh_app_ft/vunh_base/value_base/constants.dart';
 
 class LoginHome extends StatefulWidget {
   @override
@@ -22,59 +24,60 @@ class LoginHomeState extends State<LoginHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,  //tránh bàn phím hiện lên đẩy size container
       body: Container(
         padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
         constraints: BoxConstraints.expand(),
-        color: Colors.white,
+        // color: Colors.white,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/backgrounds/bg_04.png'),
+            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.9), BlendMode.dstATop),
+            fit: BoxFit.fill
+          ),
+        ),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               SizedBox(height: 40, ),
               Container(
                   decoration: BoxDecoration(
-                      color: Colors.brown[400],
+                      // color: Colors.brown[400],
                       borderRadius: BorderRadius.all(new Radius.circular(100)),
-                      border: Border.all(color: Colors.yellow[900], width: 5)
+                      border: Border.all(color: colorPrimaryDark, width: 5)
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.asset('hu_hon_001.PNG', height: 150, width: 150, fit: BoxFit.fill,),
                   )
               ),
-              // Image.asset('hu_hon_001.PNG',height: 150,),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Text(
-                  "Welcom to Vunh App",
-                  style: TextStyle(fontSize: 22, color: Colors.deepPurpleAccent),
-                ),
-              ),
-              Text(
-                "Login to continue",
-                style: TextStyle(fontSize: 16, color: Colors.deepPurpleAccent),
-              ),
+              SizedBox(height: 20, ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                 child: StreamBuilder(
                   stream: authBloc.emailController,
                   builder: (context, snapshot) => TextField(
                     controller: _emailController,
-                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    style: TextStyle(fontSize: 18, color: textPrimaryBlack),
+                    cursorColor: colorPrimary,
                     decoration: InputDecoration(
                         errorText: snapshot.hasError ? snapshot.error : null,
                         labelText: "Email",
+                        labelStyle: TextStyle(color: colorPrimary),
                         prefixIcon: Container(
                           width: 50,
-                          child: Icon(Icons.email, color: Colors.deepPurpleAccent,),
+                          child: Icon(Icons.email, color: colorPrimary,),
                         ),
                         suffixIcon: IconButton(
                           onPressed: () => _emailController.clear(),
                           icon: Icon(Icons.clear),
+                          color: colorPrimary,
                         ),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 2),
                             borderRadius: BorderRadius.all(Radius.circular(6))
-                        )
+                        ),
+                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: colorPrimary)),
                     ),
                   ),
                 ),
@@ -86,22 +89,25 @@ class LoginHomeState extends State<LoginHome> {
                   builder: (context, snapshot) => TextField(
                     controller: _passController,
                     style: TextStyle(fontSize: 18, color: Colors.black),
+                    cursorColor: colorPrimary,
                     obscureText: true,
                     decoration: InputDecoration(
-                        errorText: snapshot.hasError ? snapshot.error : null,
-                        labelText: "Password",
-                        prefixIcon: Container(
+                      errorText: snapshot.hasError ? snapshot.error : null,
+                      labelText: "Password",
+                      labelStyle: TextStyle(color: colorPrimary),
+                      prefixIcon: Container(
                           width: 50,
-                          child: Icon(Icons.vpn_key, color: Colors.deepPurpleAccent,),
+                          child: Icon(Icons.vpn_key, color: colorPrimary,),
                         ),
                         suffixIcon: IconButton(
                           onPressed: () => _passController.clear(),
-                          icon: Icon(Icons.clear),
+                          icon: Icon(Icons.clear, color: colorPrimary,),
                         ),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 2),
                             borderRadius: BorderRadius.all(Radius.circular(6))
-                        )
+                        ),
+                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: colorPrimary)),
                     ),
                   ),
                 ),
@@ -122,7 +128,7 @@ class LoginHomeState extends State<LoginHome> {
                             );
                           },
                         text: "Forgot Password?",
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
+                        style: TextStyle(color: textPrimaryGrey, fontSize: 16),
                       ),
                     )
                 ),
@@ -133,10 +139,10 @@ class LoginHomeState extends State<LoginHome> {
                 child: RaisedButton(
                   onPressed: _onLoginClicked,
                   child: Text(
-                    "Login",
+                    ConstantStringVn.sys_login,
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                  color: Colors.deepPurpleAccent,
+                  color: colorPrimary,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(6))
                   ),
@@ -159,7 +165,7 @@ class LoginHomeState extends State<LoginHome> {
                       RichText(
                           text: TextSpan(
                           text: "Help? ",
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                          style: TextStyle(color: textPrimaryGrey, fontSize: 16),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                              /* Navigator.push(
@@ -190,7 +196,7 @@ class LoginHomeState extends State<LoginHome> {
                   ),
                 ),
               ),
-              TextButton(
+              /*TextButton(
                   onPressed: () => {
                     MsgDialog.showOneButtonDialog(this.context, 'Thông Báo', 'Nhập thông báo')
                   },
@@ -201,35 +207,31 @@ class LoginHomeState extends State<LoginHome> {
                       child: Text('Msg-One'),
                     ),
                   )
-              ),
-              TextButton(
+              ),*/
+              /*TextButton(
                   onPressed: () => MsgDialog.showTwoButtonDialog(
                         context: this.context,
                         title: 'Thông Báo',
-                        content: 'Nhập nội dung',
-                        typeBtnNo: 'No',
-                        typeBtnYes: 'Yes')
-                        .then((value) => {
-                      if (value == ConfirmActionTwoButton.ACCEPT) {
-                          /// Save the date/time as the last time alerted.
-                          // UpgradeApp().saveLastAlerted();
-                      // UpgradeApp().onUserUpdated(context, false);
-                        Fluttertoast.showToast(
-                          msg: "Chọn Yes..",
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          timeInSecForIos: 1
-                        )
-                      }else {
-                        Fluttertoast.showToast(
-                            msg: "Chọn No..",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIos: 1
-                        )
-                      }
-                    })
-                  ,
+                        content: 'Nhập nội dung').then((value) => {
+                          if (value == ConfirmActionTwoButton.ACCEPT) {
+                              /// Save the date/time as the last time alerted.
+                              // UpgradeApp().saveLastAlerted();
+                          // UpgradeApp().onUserUpdated(context, false);
+                            Fluttertoast.showToast(
+                              msg: "Chọn Yes..",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIos: 1
+                            )
+                          }else {
+                            Fluttertoast.showToast(
+                                msg: "Chọn No..",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.BOTTOM,
+                                timeInSecForIos: 1
+                            )
+                          }
+                        }),
                   child: Container(
                     color: Color(0x8DFFC041),
                     child: Padding(
@@ -237,7 +239,7 @@ class LoginHomeState extends State<LoginHome> {
                       child: Text('Msg-Two'),
                     ),
                   )
-              )
+              )*/
             ],
           ),
         ),

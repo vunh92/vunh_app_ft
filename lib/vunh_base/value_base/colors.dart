@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
-final Color colorPrimary = const Color.fromRGBO(167, 0, 255, 1.0);
-final Color colorPrimaryDark = const Color(0xFF8700CD);
+// final Color colorPrimary = const Color.fromRGBO(167, 0, 255, 1.0);
+// final Color colorPrimaryDark = const Color(0xFF8700CD);
+// final Color colorPrimaryDarkIcon = const Color(0xFF06630D);
+// final Color colorPrimaryStatusBar = const Color.fromRGBO(115, 28, 31, 1);
+
+final Color colorPrimary = const Color.fromRGBO(204, 153, 102, 1.0);
+final Color colorPrimaryDark = const Color.fromRGBO(153, 102, 51, 1.0);
+final Color colorAccent = const Color.fromRGBO(255, 204, 153, 1.0);
 final Color colorPrimaryDarkIcon = const Color(0xFF06630D);
-final Color colorPrimaryStatusBar = const Color.fromRGBO(115, 28, 31, 1);
+final Color colorPrimaryStatusBar = const Color.fromRGBO(117, 79, 40, 1);
 
 final Color colorPrimaryIsRequired = const Color(0xFF06630D);
 final Color colorPrimaryRadio = const Color(0xFF06630D);

@@ -58,7 +58,7 @@ class AuthBloc {
 
   void isValidLoginFirebase(String email, String password, BuildContext context) async {
     try {
-      LoadingDialog.showLoadingDialog(context, 'Đang kiểm tra Login');
+      LoadingDialog.showLoadingDialog(context, 'Đang kiểm tra đặng nhập...');
       AuthResult _authResult = await _auth.signInWithEmailAndPassword(email: email, password: password);
       if (_authResult.user != null) {
         LoadingDialog.hideLoadingDialog(context);
