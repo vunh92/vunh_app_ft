@@ -39,7 +39,17 @@ class RegisterHomeState extends State<RegisterHome>{
           child: Column(
             children: <Widget>[
               SizedBox(height: 10, ),
-              Image.asset('nham_hiem_003.PNG',height: 150,),
+              Container(
+                  decoration: BoxDecoration(
+                      color: Colors.brown[400],
+                      borderRadius: BorderRadius.all(new Radius.circular(100)),
+                      border: Border.all(color: Colors.yellow[900], width: 5)
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.asset('nham_hiem_003.PNG', height: 150, width: 150, fit: BoxFit.fill,),
+                  )
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                 child: StreamBuilder(

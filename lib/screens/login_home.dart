@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vunh_app_ft/blocs/auth_bloc.dart';
 import 'package:vunh_app_ft/dialog/loading_dialog.dart';
-import 'package:vunh_app_ft/dialog/msg_dialog.dart';
 import 'package:vunh_app_ft/screens/photo_home.dart';
 import 'package:vunh_app_ft/screens/register_home.dart';
+import 'package:vunh_app_ft/vunh_base/dialog_base/alert_customize.dart';
 
 class LoginHome extends StatefulWidget {
   @override
@@ -189,6 +189,54 @@ class LoginHomeState extends State<LoginHome> {
                     ],
                   ),
                 ),
+              ),
+              TextButton(
+                  onPressed: () => {
+                    MsgDialog.showOneButtonDialog(this.context, 'Thông Báo', 'Nhập thông báo')
+                  },
+                  child: Container(
+                    color: Color(0x8DFFC041),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Msg-One'),
+                    ),
+                  )
+              ),
+              TextButton(
+                  onPressed: () => MsgDialog.showTwoButtonDialog(
+                        context: this.context,
+                        title: 'Thông Báo',
+                        content: 'Nhập nội dung',
+                        typeBtnNo: 'No',
+                        typeBtnYes: 'Yes')
+                        .then((value) => {
+                      if (value == ConfirmActionTwoButton.ACCEPT) {
+                          /// Save the date/time as the last time alerted.
+                          // UpgradeApp().saveLastAlerted();
+                      // UpgradeApp().onUserUpdated(context, false);
+                        Fluttertoast.showToast(
+                          msg: "Chọn Yes..",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIos: 1
+                        )
+                      }else {
+                        Fluttertoast.showToast(
+                            msg: "Chọn No..",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIos: 1
+                        )
+                      }
+                    })
+                  ,
+                  child: Container(
+                    color: Color(0x8DFFC041),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Msg-Two'),
+                    ),
+                  )
               )
             ],
           ),
