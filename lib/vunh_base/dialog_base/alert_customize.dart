@@ -10,6 +10,69 @@ enum ConfirmActionTwoButton { CANCEL, ACCEPT }
 enum ConfirmActionOneButton { CLOSE }
 
 class MsgDialog {
+  static const double consPadding = 5;
+  static const double consRadius = 40;
+
+  static void showCustomDialog(BuildContext context, String title, String content){
+    showDialog(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (context) => Dialog(
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.circular(8),
+        // ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(left: consPadding, top: consRadius + 10, right: consPadding, bottom: consPadding),
+              margin: EdgeInsets.only(top: consRadius),
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(color: Colors.black,offset: Offset(0,10),
+                        blurRadius: 15
+                    ),
+                  ]
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(title, style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+                  SizedBox(height: 15,),
+                  Text(content,style: TextStyle(fontSize: 14),textAlign: TextAlign.center,),
+                  SizedBox(height: 22,),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: FlatButton(
+                        onPressed: (){
+                          Navigator.of(context).pop(MsgDialog);
+                        },
+                        child: Text(ConstantStringVn.sys_close,style: TextStyle(fontSize: 16),)),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: consPadding,
+              right: consPadding,
+              child: CircleAvatar(
+                backgroundColor: Colors.transparent,
+                radius: consRadius,
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(consRadius)),
+                    child: Image.asset("assets/hu_hon_002.PNG")
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   static void showOneButtonDialog(BuildContext context, String title, String content){
     showDialog(
@@ -21,11 +84,15 @@ class MsgDialog {
         titlePadding: const EdgeInsets.all(0.0),
         contentPadding: const EdgeInsets.all(0.0),
         buttonPadding: const EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
         // title: Text(title),
         title: Container(
           padding: const EdgeInsets.fromLTRB(5.0, 8.0, 5.0, 8.0),
           decoration: BoxDecoration(
             color: colorPrimary,
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8))
           ),
           child: Row(
             children: <Widget>[
@@ -82,11 +149,14 @@ class MsgDialog {
         titlePadding: const EdgeInsets.all(0.0),
         contentPadding: const EdgeInsets.all(0.0),
         buttonPadding: const EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
-        // title: Text(title),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
         title: Container(
           padding: const EdgeInsets.fromLTRB(5.0, 8.0, 5.0, 8.0),
           decoration: BoxDecoration(
             color: colorPrimary,
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8))
           ),
           child: Row(
             children: <Widget>[

@@ -78,17 +78,18 @@ class RegisterHomeState extends State<RegisterHome>{
                             stream: authBloc.emailController,
                             builder: (context, snapshot) => TextField(
                               controller: _emailController,
-                              style: TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(fontSize: 16, color: colorTextBlack),
                               cursorColor: colorPrimary,
                               decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                                 errorText: snapshot.hasError ? snapshot.error : null,
                                 labelText: "Email",
                                 labelStyle: TextStyle(color: colorPrimary, fontStyle: FontStyle.italic),
                                 prefixIcon: Container(
-                                  width: 50,
+                                  width: 30,
                                   child: Icon(Icons.email, color: colorPrimary,),
                                 ),
-                                enabledBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
                                     borderSide: BorderSide(width: 1, color: colorPrimary),
                                     borderRadius: BorderRadius.all(Radius.circular(6))
                                 ),
@@ -103,18 +104,19 @@ class RegisterHomeState extends State<RegisterHome>{
                             stream: authBloc.passController,
                             builder: (context, snapshot) => TextField(
                               controller: _passController,
-                              style: TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(fontSize: 16, color: colorTextBlack),
                               obscureText: true,
                               cursorColor: colorPrimary,
                               decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                                 errorText: snapshot.hasError ? snapshot.error : null,
                                 labelText: "Password",
                                 labelStyle: TextStyle(color: colorPrimary, fontStyle: FontStyle.italic),
                                 prefixIcon: Container(
-                                  width: 50,
+                                  width: 30,
                                   child: Icon(Icons.vpn_key, color: colorPrimary,),
                                 ),
-                                enabledBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
                                     borderSide: BorderSide(width: 1, color: colorPrimary),
                                     borderRadius: BorderRadius.all(Radius.circular(6))
                                 ),
@@ -129,18 +131,19 @@ class RegisterHomeState extends State<RegisterHome>{
                             stream: authBloc.confirmPasswordController,
                             builder: (context, snapshot) => TextField(
                               controller: _confirmPasswordController,
-                              style: TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(fontSize: 16, color: colorTextBlack),
                               obscureText: true,
                               cursorColor: colorPrimary,
                               decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                                 errorText: snapshot.hasError ? snapshot.error : null,
-                                labelText: "ConfirmPass",
+                                labelText: "Confirm Password",
                                 labelStyle: TextStyle(color: colorPrimary, fontStyle: FontStyle.italic),
                                 prefixIcon: Container(
-                                  width: 50,
+                                  width: 30,
                                   child: Icon(Icons.vpn_key, color: colorPrimary,),
                                 ),
-                                enabledBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
                                     borderSide: BorderSide(width: 1, color: colorPrimary),
                                     borderRadius: BorderRadius.all(Radius.circular(6))
                                 ),

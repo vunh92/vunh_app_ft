@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/*
 class MsgDialog {
   static void showMsgDialog(BuildContext context, String title, String msg){
     showDialog(
@@ -15,4 +16,4 @@ class MsgDialog {
       ),
     );
   }
-}
+}*/

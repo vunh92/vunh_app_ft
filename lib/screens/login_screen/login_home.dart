@@ -70,14 +70,15 @@ class LoginHomeState extends State<LoginHome> {
                             stream: authBloc.emailController,
                             builder: (context, snapshot) => TextField(
                               controller: _emailController,
-                              style: TextStyle(fontSize: 18, color: colorTextBlack),
+                              style: TextStyle(fontSize: 16, color: colorTextBlack),
                               cursorColor: colorPrimary,
                               decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                                 errorText: snapshot.hasError ? snapshot.error : null,
                                 labelText: "Email",
                                 labelStyle: TextStyle(color: colorPrimary, fontStyle: FontStyle.italic),
                                 prefixIcon: Container(
-                                  width: 50,
+                                  width: 30,
                                   child: Icon(Icons.email, color: colorPrimary,),
                                 ),
                                 suffixIcon: IconButton(
@@ -85,14 +86,14 @@ class LoginHomeState extends State<LoginHome> {
                                   icon: Icon(Icons.clear),
                                   color: colorPrimary,
                                 ),
-                                enabledBorder: OutlineInputBorder(
+                                /*enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(width: 1, color: colorPrimary),
                                     borderRadius: BorderRadius.all(Radius.circular(6))
-                                ),
-                                /*border: OutlineInputBorder(
+                                ),*/
+                                border: OutlineInputBorder(
                                     borderSide: BorderSide(width: 2, color: colorPrimary),
                                     borderRadius: BorderRadius.all(Radius.circular(6))
-                                ),*/
+                                ),
                                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: colorPrimary, width: 2)),
                               ),
                             ),
@@ -104,29 +105,30 @@ class LoginHomeState extends State<LoginHome> {
                             stream: authBloc.passController,
                             builder: (context, snapshot) => TextField(
                               controller: _passController,
-                              style: TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(fontSize: 16, color: colorTextBlack),
                               cursorColor: colorPrimary,
                               obscureText: true,
                               decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                                 errorText: snapshot.hasError ? snapshot.error : null,
                                 labelText: "Password",
                                 labelStyle: TextStyle(color: colorPrimary, fontStyle: FontStyle.italic),
                                 prefixIcon: Container(
-                                  width: 50,
+                                  width: 30,
                                   child: Icon(Icons.vpn_key, color: colorPrimary,),
                                 ),
                                 suffixIcon: IconButton(
                                   onPressed: () => _passController.clear(),
                                   icon: Icon(Icons.clear, color: colorPrimary,),
                                 ),
-                                enabledBorder: OutlineInputBorder(
+                                /*enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(width: 1, color: colorPrimary),
                                     borderRadius: BorderRadius.all(Radius.circular(6))
-                                ),
-                                /*border: OutlineInputBorder(
+                                ),*/
+                                border: OutlineInputBorder(
                                     borderSide: BorderSide(width: 2),
                                     borderRadius: BorderRadius.all(Radius.circular(6))
-                                ),*/
+                                ),
                                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: colorPrimary, width: 2)),
                               ),
                             ),
@@ -140,12 +142,14 @@ class LoginHomeState extends State<LoginHome> {
                                 text: TextSpan(
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
-                                      Fluttertoast.showToast(
+                                      /*Fluttertoast.showToast(
                                           msg: "Forgot Password..",
                                           toastLength: Toast.LENGTH_SHORT,
                                           gravity: ToastGravity.BOTTOM,
                                           timeInSecForIos: 1
-                                      );
+                                      );*/
+                                      // MsgDialog.showOneButtonDialog(context, 'My Account', 'vunh01@gmail.com - 123456');
+                                      MsgDialog.showCustomDialog(context, 'My Account', 'vunh01@gmail.com - 123456');
                                     },
                                   text: "Forgot Password?",
                                   style: TextStyle(color: colorText1, fontSize: 16, fontStyle: FontStyle.italic),

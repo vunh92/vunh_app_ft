@@ -5,9 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vunh_app_ft/dialog/loading_dialog.dart';
-import 'package:vunh_app_ft/dialog/msg_dialog.dart';
 import 'package:vunh_app_ft/screens/home_screen/home_screen.dart';
 import 'package:vunh_app_ft/screens/photo_home.dart';
+import 'package:vunh_app_ft/vunh_base/dialog_base/alert_customize.dart';
 import 'package:vunh_app_ft/vunh_base/value_base/constants.dart';
 
 class AuthBloc {
@@ -66,14 +66,15 @@ class AuthBloc {
         // Navigator.push(context, MaterialPageRoute(builder: (context) => PhotoHome(),));
         Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Login Success!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
+            SnackBar(content: Text("Login successful!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
       }else {
         LoadingDialog.hideLoadingDialog(context);
       }
     }catch (e){
       print(e);
       LoadingDialog.hideLoadingDialog(context);
-      MsgDialog.showMsgDialog(context, ConstantStringVn.sys_notify, ConstantStringVn.msg_error_login);
+      // MsgDialog.showMsgDialog(context, ConstantStringVn.sys_notify, ConstantStringVn.msg_error_login);
+      MsgDialog.showOneButtonDialog(context, ConstantStringVn.sys_notify, ConstantStringVn.msg_error_login);
     }
   }
 
@@ -85,7 +86,7 @@ class AuthBloc {
         LoadingDialog.hideLoadingDialog(context);
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Sign up Success!", textAlign: TextAlign.center,), duration: Duration(seconds: 4), ));
+            SnackBar(content: Text("Register successful!", textAlign: TextAlign.center,), duration: Duration(seconds: 2), ));
       }else {
         LoadingDialog.hideLoadingDialog(context);
       }
