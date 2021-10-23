@@ -1,12 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:vunh_app_ft/screens/contact_home.dart';
-import 'package:vunh_app_ft/screens/login_home.dart';
+import 'package:vunh_app_ft/screens/login_screen/login_home.dart';
 import 'package:vunh_app_ft/screens/photo_home.dart';
+import 'package:vunh_app_ft/vunh_base/value_base/colors.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
 void main() {
+  //set statusBar all widget
+  /*SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    // systemNavigationBarColor: Colors.blue, // navigation bar color
+    statusBarColor: colorPrimaryStatusBar, // status bar color
+  ));*/
   runApp(MyApp());
 }
 
@@ -18,7 +25,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepPurple,
+          appBarTheme: AppBarTheme( //set appbar theme
+            brightness: Brightness.dark,
+            color: Colors.transparent,
+            elevation: 0,
+          )
         ),
         // home: MyHomePage(title: 'Firebase Auth Demo'),
         // home: ContactHome(),

@@ -45,25 +45,25 @@ class ThemeBase {
   static TextStyle textBlackFontSize11 =
       TextStyle(color: textPrimaryGrey1, fontSize: fontSize11);
   static TextStyle textBlackFontSize12 =
-      TextStyle(color: textPrimaryBlack, fontSize: fontSize12);
+      TextStyle(color: colorTextBlack, fontSize: fontSize12);
   static TextStyle textBlackFontSize13 =
-      TextStyle(color: textPrimaryBlack, fontSize: fontSize13);
+      TextStyle(color: colorTextBlack, fontSize: fontSize13);
   static TextStyle textBlackFontSize14 =
-      TextStyle(color: textPrimaryBlack, fontSize: fontSize14);
+      TextStyle(color: colorTextBlack, fontSize: fontSize14);
   static TextStyle textBlackFontSize16 =
-      TextStyle(color: textPrimaryBlack, fontSize: fontSize16);
+      TextStyle(color: colorTextBlack, fontSize: fontSize16);
 
   //Text BlackBold
   static TextStyle textBlackBoldFontSize14 = TextStyle(
-      color: textPrimaryBlack,
+      color: colorTextBlack,
       fontSize: fontSize14,
       fontWeight: FontWeight.w500);
   static TextStyle textBlackBoldFontSize16 = TextStyle(
-      color: textPrimaryBlack,
+      color: colorTextBlack,
       fontSize: fontSize16,
       fontWeight: FontWeight.w500);
   static TextStyle textBlackBoldFontSize18 = TextStyle(
-      color: textPrimaryBlack,
+      color: colorTextBlack,
       fontSize: fontSize18,
       fontWeight: FontWeight.w500);
 
@@ -159,13 +159,13 @@ class ThemeBase {
 
   //Dialog
   static TextStyle textBlackMessDialogTitle = TextStyle(
-      color: textPrimaryBlack,
+      color: colorTextBlack,
       fontSize: fontSize16,
       fontWeight: FontWeight.w500);
   static TextStyle textWhiteMessDialogTitle =
       TextStyle(color: Colors.white, fontSize: fontSize16);
   static TextStyle textMessDialogContent =
-      TextStyle(color: textPrimaryBlack, fontSize: fontSize14);
+      TextStyle(color: colorTextBlack, fontSize: fontSize14);
   static TextStyle textMessDialogButtonColorPrimary =
       TextStyle(color: colorColorPrimaryButtonMessDialog, fontSize: fontSize14);
   static TextStyle textMessDialogButtonColorHint =
@@ -173,7 +173,7 @@ class ThemeBase {
 
   //Box File
   static TextStyle textBoxFieldBlack =
-      TextStyle(color: textPrimaryBlack, fontSize: fontSize16);
+      TextStyle(color: colorTextBlack, fontSize: fontSize16);
   static TextStyle textBoxFieldHint =
       TextStyle(color: textPrimaryGrey1, fontSize: fontSize16);
 
@@ -197,7 +197,7 @@ class ThemeBase {
     fontFamily: fontRoboto,
     fontSize: fontSize14,
     letterSpacing: 0.2,
-    color: textPrimaryBlack,
+    color: colorTextBlack,
   );
 
   static TextStyle textColorGreenFontSize14 = TextStyle(

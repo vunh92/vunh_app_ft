@@ -6,8 +6,8 @@ import 'package:vunh_app_ft/models/color_constant.dart';
 import 'package:vunh_app_ft/models/popular_destination_model.dart';
 import 'package:vunh_app_ft/models/style_constant.dart';
 import 'package:vunh_app_ft/models/travlog_model.dart';
+import 'package:vunh_app_ft/screens/home_screen/home_menu.dart';
 import 'package:vunh_app_ft/screens/navigation_exam/bottom_navigation_travelkuy.dart';
-import 'package:vunh_app_ft/view/home_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

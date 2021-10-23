@@ -5,6 +5,12 @@ class ConstantStringVn {
   static const String sys_yes = 'Có';
   static const String sys_no = 'Không';
   static const String sys_login = 'Đăng Nhập';
+  static const String sys_register = 'Đăng Ký';
+  static const String sys_logining = 'Đang kiểm tra đặng nhập...';
+
+  //message
+  static const String msg_error_login = 'Sai mật khẩu hoặc tài khoản!!!';
+  static const String msg_creating_email = 'Đang tạo email';
 }
 
 const String aboutHqSoft = 'https://www.hqsoft.com.vn';

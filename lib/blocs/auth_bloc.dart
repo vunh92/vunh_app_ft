@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vunh_app_ft/dialog/loading_dialog.dart';
 import 'package:vunh_app_ft/dialog/msg_dialog.dart';
+import 'package:vunh_app_ft/screens/home_screen/home_screen.dart';
 import 'package:vunh_app_ft/screens/photo_home.dart';
-import 'package:vunh_app_ft/view/home_screen.dart';
+import 'package:vunh_app_ft/vunh_base/value_base/constants.dart';
 
 class AuthBloc {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -58,7 +59,7 @@ class AuthBloc {
 
   void isValidLoginFirebase(String email, String password, BuildContext context) async {
     try {
-      LoadingDialog.showLoadingDialog(context, 'Đang kiểm tra đặng nhập...');
+      LoadingDialog.showLoadingDialog(context, ConstantStringVn.sys_logining);
       AuthResult _authResult = await _auth.signInWithEmailAndPassword(email: email, password: password);
       if (_authResult.user != null) {
         LoadingDialog.hideLoadingDialog(context);
@@ -72,13 +73,13 @@ class AuthBloc {
     }catch (e){
       print(e);
       LoadingDialog.hideLoadingDialog(context);
-      MsgDialog.showMsgDialog(context, "Thông Báo", "Sai mật khẩu hoặc tài khoản!!!");
+      MsgDialog.showMsgDialog(context, ConstantStringVn.sys_notify, ConstantStringVn.msg_error_login);
     }
   }
 
   void signUpFirebase(String email, String password, BuildContext context) async {
     try {
-      LoadingDialog.showLoadingDialog(context, 'Đang tạo email');
+      LoadingDialog.showLoadingDialog(context, ConstantStringVn.msg_creating_email);
       AuthResult _authResult = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       if (_authResult.user != null) {
         LoadingDialog.hideLoadingDialog(context);

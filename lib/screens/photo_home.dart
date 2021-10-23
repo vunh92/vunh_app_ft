@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:vunh_app_ft/models/photo_model.dart';
-import 'package:vunh_app_ft/view/home_menu.dart';
+import 'package:vunh_app_ft/screens/home_screen/home_menu.dart';
 
 class PhotoHome extends StatefulWidget {
   @override
