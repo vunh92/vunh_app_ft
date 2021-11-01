@@ -4,8 +4,7 @@ final Color colorPrimary = const Color.fromRGBO(124, 77, 255, 1.0);
 final Color colorPrimaryDark = const Color.fromRGBO(94, 53, 177, 1.0);
 final Color colorAccent = const Color.fromRGBO(128, 91, 194, 1.0);
 final Color colorPrimaryDarkIcon = const Color(0xFF06630D);
-final Color colorPrimaryStatusBar = const Color.fromRGBO(
-    94, 53, 177, 1);
+final Color colorPrimaryStatusBar = const Color.fromRGBO(94, 53, 177, 0.5);
 
 // final Color colorPrimary = const Color.fromRGBO(204, 153, 102, 1.0);
 // final Color colorPrimaryDark = const Color.fromRGBO(153, 102, 51, 1.0);

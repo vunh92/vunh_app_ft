@@ -9,6 +9,7 @@ import 'package:vunh_app_ft/screens/home_screen/home_screen.dart';
 import 'package:vunh_app_ft/screens/photo_home.dart';
 import 'package:vunh_app_ft/vunh_base/dialog_base/alert_customize.dart';
 import 'package:vunh_app_ft/vunh_base/value_base/constants.dart';
+import 'package:vunh_movies/discover/toplists/presentation/toplists_screen.dart';
 
 class AuthBloc {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -64,7 +65,8 @@ class AuthBloc {
       if (_authResult.user != null) {
         LoadingDialog.hideLoadingDialog(context);
         // Navigator.push(context, MaterialPageRoute(builder: (context) => PhotoHome(),));
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TopListsScreen(),));
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Login successful!", textAlign: TextAlign.center,), duration: Duration(seconds: 1), ));
       }else {
